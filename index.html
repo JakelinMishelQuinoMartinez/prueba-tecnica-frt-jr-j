@@ -3,26 +3,59 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f4f5f7" />
   <title>NovaTech | Catálogo</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Seguí el diseño de Figma para la estructura y el estilo. -->
-  <!-- Podés cambiar y acomodar este HTML como lo necesites. -->
-  <header>
-    <h1>NovaTech</h1>
+  <p class="page-label">Catálogo NovaTech</p>
 
-    <!-- Buscador -->
-    <input id="buscador" type="text" placeholder="Buscar producto..." />
+  <header class="site-header">
+    <div class="header-content">
+      <a class="brand" href="./" aria-label="NovaTech, inicio">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M13.2 3.8 6.8 12h4.6l-.6 8.2 6.4-8.2h-4.6l.6-8.2Z" />
+          </svg>
+        </span>
+        <span>NovaTech</span>
+      </a>
 
-    <!-- Filtro por categoría (las demás opciones se agregan desde JavaScript) -->
-    <select id="categoria">
-      <option value="todas">Todas las categorías</option>
-    </select>
+      <div class="catalog-controls">
+        <label class="search-control">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="10.8" cy="10.8" r="6.3"></circle>
+            <path d="m15.5 15.5 4.2 4.2"></path>
+          </svg>
+          <input id="buscador" type="search" placeholder="Buscar producto..." autocomplete="off" aria-label="Buscar producto por nombre" />
+        </label>
+
+        <label class="select-control">
+          <span class="visually-hidden">Filtrar por categoría</span>
+          <select id="categoria">
+            <option value="todas">Todas las categorías</option>
+          </select>
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="m7 10 5 5 5-5"></path>
+          </svg>
+        </label>
+      </div>
+    </div>
   </header>
 
-  <!-- Aquí se van a mostrar las tarjetas de productos -->
-  <main id="catalogo"></main>
+  <main class="main-content">
+    <div class="catalog-heading">
+      <h1>Catálogo</h1>
+      <div class="catalog-summary">
+        <span id="contador-productos" aria-live="polite">0 productos</span>
+        <span class="summary-divider" aria-hidden="true"></span>
+        <span id="contador-agregados" aria-live="polite">Agregados: 0</span>
+      </div>
+    </div>
+
+    <section id="catalogo" class="product-grid" aria-label="Productos"></section>
+    <p id="estado-vacio" class="empty-state" hidden>No encontramos productos que coincidan con tu búsqueda.</p>
+  </main>
 
   <script src="data.js"></script>
   <script src="script.js"></script>
